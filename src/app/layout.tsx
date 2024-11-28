@@ -2,15 +2,20 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+const twenTigthCentury = localFont({
+  src: [
+    {
+      path: "../app/fonts/TwentiethCenturyforKenmoreN.ttf",
+      weight: "normal",
+      style: "normal",
+    },
+    {
+      path: "../app/fonts/TwentiethCenturyforKenmoreNBold.ttf",
+      weight: "bold",
+      style: "normal",
+    },
+  ],
+  variable: "--font-twentieth-century",
 });
 
 export const metadata: Metadata = {
@@ -25,11 +30,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${twenTigthCentury.variable} antialiased`}>
         {children}
       </body>
     </html>
   );
 }
+
+// ${geistSans.variable} ${geistMono.variable}
+// const geistSans = localFont({
+//   src: "./fonts/GeistVF.woff",
+//   variable: "--font-geist-sans",
+//   weight: "100 900",
+// });
+// const geistMono = localFont({
+//   src: "./fonts/GeistMonoVF.woff",
+//   variable: "--font-geist-mono",
+//   weight: "100 900",
+// });
